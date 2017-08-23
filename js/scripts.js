@@ -6,6 +6,9 @@ function Player(name) {
   this.totalScore=0;
   dice;
 }
+Player.prototype.Pass= function(tempScore) {
+  this.totalScore = this.totalScore + tempScore;
+}
 //
 // Player.prototype.totalScore = function (rolled) {
 //   this.score = this.score + rolled;
@@ -29,16 +32,39 @@ rollit = function (){
 }
 
 $(document).ready(function() {
+  tempScore=0;
   $('#players').submit(function() {
     event.preventDefault();
     name1=$("#name1").val();
     name2=$("#name2").val();
     player1=new Player(name1);
     player2=new Player(name2);
-    console.log(player1);
     $("#players").addClass("hidden");
+    $("#dice").removeClass("hidden");
 });
-  });
+
+$("#rollem").click(function() {
+rolled=rollit();
+if(rolled===1){
+  tempScore=0
+
+} else {
+  tempScore=tempScore+rolled
+  console.log(tempScore);
+  console.log(player1);
+}
+
+});
+rolled=rollit();
+console.log(tempScore);
+
+
+$("#pass").click(function() {
+player1.Pass();
+alert("pass");
+});
+});
+
 
 
 //user interface logic
