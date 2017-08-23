@@ -4,10 +4,12 @@ function Player(name) {
   this.name = name;
   this.tempScore=0;
   this.totalScore=0;
-  dice;
 }
 Player.prototype.Pass= function(tempScore) {
   this.totalScore = this.totalScore + tempScore;
+if (activePlayer===player1) {
+activePlayer=player2
+} else {activePlayer=player1}
 }
 //
 // Player.prototype.totalScore = function (rolled) {
@@ -40,7 +42,7 @@ $(document).ready(function() {
     player1=new Player(name1);
     player2=new Player(name2);
     $("#players").addClass("hidden");
-    $("#dice").removeClass("hidden");
+    $("#player1").removeClass("hidden");
 });
 
 $("#rollem").click(function() {
@@ -55,13 +57,27 @@ if(rolled===1){
 }
 
 });
+$("#rollem2").click(function() {
+rolled=rollit();
+if(rolled===1){
+  tempScore=0
+
+} else {
+  tempScore=tempScore+rolled
+  console.log(tempScore);
+  console.log(player2);
+}
+
+});
 rolled=rollit();
 console.log(tempScore);
 
 
-$("#pass").click(function() {
-player1.Pass();
-alert("pass");
+$(".pass").click(function() {
+$("#player1").toggleClass("hidden");
+$("#player2").toggleClass("hidden");
+console.log(player1);
+console.log(player2);
 });
 });
 
