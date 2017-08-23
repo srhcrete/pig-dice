@@ -7,26 +7,11 @@ function Player(name) {
 }
 Player.prototype.Pass= function(tempScore) {
   this.totalScore = this.totalScore + tempScore;
-if (activePlayer===player1) {
-activePlayer=player2
-} else {activePlayer=player1}
+  tempScore=0;
+  alert("Next Player");
+  $("#player1").toggleClass("hidden");
+  $("#player2").toggleClass("hidden");
 }
-//
-// Player.prototype.totalScore = function (rolled) {
-//   this.score = this.score + rolled;
-// }
-// // if first roll do this
-// function Firstroll(rolled) {
-//   this.rolled = rolled;
-// }
-// console.log(Firstroll);
-// //if subsequent roll do this
-// Firstroll.prototype.tempScore = function(rolled) {
-//   this.rolled = this.rolled+rolled;
-// }
-
-
-
 
 //method
 rollit = function (){
@@ -48,8 +33,9 @@ $(document).ready(function() {
 $("#rollem").click(function() {
 rolled=rollit();
 if(rolled===1){
-  tempScore=0
-
+  tempScore=0;
+  player1.Pass(tempScore);
+  alert("you rolled a 1 sucker!");
 } else {
   tempScore=tempScore+rolled
   console.log(tempScore);
@@ -61,7 +47,8 @@ $("#rollem2").click(function() {
 rolled=rollit();
 if(rolled===1){
   tempScore=0
-
+  player2.Pass(tempScore);
+  alert("you rolled a 1 sucker!");
 } else {
   tempScore=tempScore+rolled
   console.log(tempScore);
@@ -73,29 +60,19 @@ rolled=rollit();
 console.log(tempScore);
 
 
-$(".pass").click(function() {
+
+$("#pass").click(function() {
+// $("#player1").toggleClass("hidden");
+// $("#player2").toggleClass("hidden");
+player1.Pass(tempScore);
+tempScore = 0;
+console.log(player1);
+});
+$("#pass2").click(function() {
 $("#player1").toggleClass("hidden");
 $("#player2").toggleClass("hidden");
-console.log(player1);
+player2.Pass(tempScore);
+tempScore = 0;
 console.log(player2);
 });
 });
-
-
-
-//user interface logic
-// $(document).ready(function() {
-//   $('#players').submit(function() {
-//     event.preventDefault();
-//     rolled=rollit();
-//     name1=$("#name1").val();
-//     player1=new Player(name);
-//     console.log(rolled);
-//     $('#dice').append("<p>" +rolled+ "</p>");
-//   });
-
-//   name1= name1.val();
-//   name2=name2.val();
-// var player1= new player(name1);
-// var player2= new player(name2);
-// })
