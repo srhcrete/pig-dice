@@ -13,6 +13,7 @@ Player.prototype.Pass= function(tempScore) {
   $("#player2").toggleClass("hidden");
   $("#player1-score").text(player1.totalScore);
   $("#player2-score").text(player2.totalScore);
+
 }
 
 //method
@@ -33,7 +34,14 @@ $(document).ready(function() {
 });
 
 $("#rollem").click(function() {
+  $("#pig1").addClass("hidden");
+  $("#pig2").addClass("hidden");
+  $("#pig3").addClass("hidden");
+  $("#pig4").addClass("hidden");
+  $("#pig5").addClass("hidden");
+  $("#pig6").addClass("hidden");
 rolled=rollit();
+$("#pig" + rolled).toggleClass("hidden");
 if(rolled===1){
   tempScore=0;
   player1.Pass(tempScore);
@@ -47,7 +55,14 @@ $("#rollingTotal").text(tempScore);
 });
 
 $("#rollem2").click(function() {
+  $("#pig1").addClass("hidden");
+  $("#pig2").addClass("hidden");
+  $("#pig3").addClass("hidden");
+  $("#pig4").addClass("hidden");
+  $("#pig5").addClass("hidden");
+  $("#pig6").addClass("hidden");
 rolled=rollit();
+$("#pig" + rolled).toggleClass("hidden");
 if(rolled===1){
   tempScore=0
   player2.Pass(tempScore);

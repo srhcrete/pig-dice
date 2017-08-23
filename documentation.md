@@ -28,4 +28,7 @@ sarah decides to pass or roll ----rolls
   ----pass----
 austin score=score+tempscore  
 
-  
+
+
+    $("#" + output).removeClass("hidden");
+    var pictoshow = $("#" + output).removeClass("hidden");
