@@ -1,18 +1,37 @@
 .jumbotron {
   background-image: url(http://greatinspire.com/wp-content/uploads/2013/07/35-Cute-Miniature-Pig-Pictures-17.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  text-shadow: white 0 0px 8px;
 }
 
+.form-container {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid grey;
+}
 
-
-.col-md-7{
-position: fixed;
- display: inline-block;
- text-align: center;
- width: 20vw;
- height: 20vh;
- padding: 1vw;
- margin: -5vw;
- z-index: 100;
+.container {
 
 }
+
+#player1 {
+
+}
+
+#player2 {
+
+
+}
+/*.col-md-7 {
+  position: fixed;
+  display: inline-block;
+  text-align: center;
+  width: 20vw;
+  height: 20vh;
+  padding: 1vw;
+  margin: -5vw;
+  z-index: 100;
+}*/
